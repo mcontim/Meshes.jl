@@ -80,3 +80,13 @@ sample(domain::Domain, size::Int, weights=nothing; kwargs...) =
   sample(Random.default_rng(), domain, size, weights; kwargs...)
 sample(rng::AbstractRNG, domain::Domain, size::Int, weights=nothing; kwargs...) =
   sample(rng, domain, WeightedSampling(size, weights; kwargs...))
+
+"""
+    FibonacciSampling
+
+A deterministic method for sampling on unit square,
+disk or sphere using the Fibonacci lattice. 
+This method allows to distribute points in an elegant  
+and efficient way, keeping constant density.
+"""
+abstract type FibonacciSampling <: SamplingMethod end
